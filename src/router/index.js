@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';  //导入vue-router插件
 import Vue from 'vue'
 import index from '@/components/index'
 import pzsp from '@/components/pzsp'
+import ajax from '@/components/ajax'
 
 Vue.use(VueRouter)  //全局使用插件
 
@@ -16,6 +17,10 @@ const routes=[      //配置路由路径和映射关系
     {
         path:'/pzsp',
         component:pzsp
+    },
+    {
+        path:'/ajax',
+        component:ajax
     }
 ]
 
