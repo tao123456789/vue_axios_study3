@@ -6,7 +6,7 @@
     <br>
     <router-link to="/pzsp" replace>索赔判责</router-link>
     <br>
-    <router-link to="/ajax" replace>测试AJAX</router-link>
+    <router-link to="/ajax" replace>功能测试</router-link>
     <router-view class="view" style="background-color: ivory"></router-view>
 
   </div>

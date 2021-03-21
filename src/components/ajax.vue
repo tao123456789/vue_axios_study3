@@ -1,12 +1,20 @@
 <template>
   <div id="vm">
-    <h2>显示AJAX获取的数据</h2>
+    <h2>功能实现</h2>
+    <input type="button" value="按钮事件" v-on:click="Greet" name=""/>
     <p id="myDiv">使用 AJAX 修改该文本内容</p>
-    <input type="button" value="AJAX获取数据" v-on:click="Greet" name=""/>
-    <input type="button" value="VUE的axios获取数据" v-on:click="Axioss" name="">
+    <input type="button" value="axios获取数据" v-on:click="Axioss" name="">
+    <p>{{msg}}</p>
     <p>{{joke}}</p>
+    <div>
+      <div class="pop" v-if="showModal">
+        <button @click="showModal=false" class="btn">点击关闭弹框</button>
+      </div>
+      <button @click="showModal=true" class="btn">点击出现弹框</button>
+    </div>
   </div>
 </template>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
@@ -18,15 +26,18 @@ import axios from "axios";
 export default {
   data(){
     return {
-      joke: "显示笑话",
+      joke:"data数据",
+      msg:"msg数据",
+      showModal: false,
     }
   },
 methods:{
     Axioss:function (){
-      axios.get("https://autumnfish.cn/api/joke/list?num=1")
+      axios.get("https://autumnfish.cn/api/joke/list?num=6")
           .then(res => {
             console.log(res);
             this.joke=res.data.jokes;
+            this.msg=res.data.msg;
           })
           .catch(err => {
             console.error(err);
@@ -35,22 +46,7 @@ methods:{
     },
   Greet: function () {
     console.log("触发了按钮事件")
-    let xmlhttp;
-    if (window.XMLHttpRequest) {
-      //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      // IE6, IE5 浏览器执行代码
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-        console.log(xmlhttp.readyState);
-      }
-    }
-    xmlhttp.open("GET", "/try/ajax/ajax_info.txt", true);
-    xmlhttp.send();
+    document.getElementById("myDiv").innerText="按钮实现，已经修改了"
   }
   }
 }

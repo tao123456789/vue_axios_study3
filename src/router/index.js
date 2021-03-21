@@ -2,7 +2,7 @@
 import VueRouter from 'vue-router';  //导入vue-router插件
 import Vue from 'vue'
 import index from '@/components/index'
-import pzsp from '@/components/pzsp'
+import pzsp_detail from '@/components/pzsp_detail'
 import ajax from '@/components/ajax'
 
 Vue.use(VueRouter)  //全局使用插件
@@ -11,12 +11,11 @@ const routes=[      //配置路由路径和映射关系
     {
         model:'history',
         path:'/index',
-        name:'index_router',
         component:index
     },
     {
         path:'/pzsp',
-        component:pzsp
+        component:pzsp_detail
     },
     {
         path:'/ajax',
