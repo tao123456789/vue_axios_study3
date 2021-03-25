@@ -4,12 +4,12 @@
     <input type="button" value="按钮事件" v-on:click="Greet" name=""/>
     <p id="myDiv">使用 AJAX 修改该文本内容</p>
     <div>
-      <div class="pop" v-if="showModal">
-        <div id="dialog" style="width: 500px;height: 300px;background-color: white;position: absolute;top: 30%;left: 40%;margin-top: -100px;margin-left: -100px;">
+      <div class="pop" v-if="showModal" >
+        <div id="dialog" style="width: 500px;height: 600px;background-color: grey;position: absolute;top: 30%;left: 40%;margin-top: -100px;margin-left: -100px;">
           <input type="text" value="element-ui手脚架示例"/>
           <br><br>
           <input type="text" value="1,el-progress使用"/>
-          <br><br>
+
           <div style="background-color: white;width: 510px">
             <el-progress type="circle" :percentage="0"></el-progress>
             <el-progress type="circle" :percentage="25"></el-progress>
@@ -25,6 +25,52 @@
                 v-model="selectedOptions"
                 @change="handleChange">
             </el-cascader>
+          </div>
+          <br>
+          <div>
+          <input type="text" value="3,el-time-select使用"/>
+          <br>
+          <el-time-select
+              v-model="value1"
+              :picker-options="{
+                start:'08:30',
+                step:'00:15',
+                end:'18:30'
+              }"
+              placeholder="选择时间"
+          ></el-time-select>
+
+            <el-date-picker
+                v-model="valueDate"
+                type="date"
+                placeholder="选择日期">
+            </el-date-picker>
+
+            <el-date-picker
+                type='week'
+                v-model='value'
+                placeholder='选择周'
+            >
+            </el-date-picker>
+
+            <el-date-picker
+                v-model="value1"
+                type="datetime"
+                placeholder="选择日期时间">
+            </el-date-picker>
+
+            <div>
+              <br>
+              <input type="text" value="4,el-form使用"/>
+              <el-form :model='list'>
+                <el-form-item label='用户名' style="">
+                <el-input></el-input>
+              </el-form-item>
+              <el-form-item label='密码'>
+                <el-input></el-input>
+              </el-form-item>
+            </el-form>
+            </div>
           </div>
           <br>
           <button @click="showModal=false" class="btn">点击关闭</button>
