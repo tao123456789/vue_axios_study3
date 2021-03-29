@@ -6,10 +6,9 @@
     <div>
       <div class="pop" v-if="showModal" >
         <div id="dialog" style="width: 500px;height: 600px;background-color: grey;position: absolute;top: 30%;left: 40%;margin-top: -100px;margin-left: -100px;">
-          <input type="text" value="element-ui手脚架示例"/>
-          <br><br>
+          <button @click="showModal=false" class="btn">点击关闭</button>
+          <br>
           <input type="text" value="1,el-progress使用"/>
-
           <div style="background-color: white;width: 510px">
             <el-progress type="circle" :percentage="0"></el-progress>
             <el-progress type="circle" :percentage="25"></el-progress>
@@ -73,7 +72,7 @@
             </div>
           </div>
           <br>
-          <button @click="showModal=false" class="btn">点击关闭</button>
+
         </div>
       </div>
       <button @click="showModal=true" class="btn">点击出现弹框</button>
